@@ -16,7 +16,7 @@ const config: ClientConfig = {
     (typeof window !== 'undefined' 
       ? process.env.NEXT_PUBLIC_PI_BACKEND_HORIZON_MAINNET_URL 
       : process.env.PI_BACKEND_HORIZON_MAINNET_URL) || 
-    'https://api.minepi.com',
+    'https://horizon.suban.org/horizon',
   
   PI_BACKEND_HORIZON_MAINNET_PASSPHRASE: 
     (typeof window !== 'undefined' 
@@ -28,7 +28,7 @@ const config: ClientConfig = {
     (typeof window !== 'undefined' 
       ? process.env.NEXT_PUBLIC_PI_BACKEND_HORIZON_TESTNET_URL 
       : process.env.PI_BACKEND_HORIZON_TESTNET_URL) || 
-    'https://api.testnet.minepi.com',
+    'https://testnet.suban.org',
     
   PI_BACKEND_HORIZON_TESTNET_PASSPHRASE: 
     (typeof window !== 'undefined' 

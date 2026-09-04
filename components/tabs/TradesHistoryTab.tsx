@@ -40,6 +40,14 @@ export default function TradesHistoryTab({ onLoad }: TradesHistoryTabProps) {
   const setCached = (key: string, data: any) => { try { localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data })); } catch {} };
 
   useEffect(() => { fetchTrades(undefined, true); }, []);
+
+  // Auto-refresh every 15s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchTrades(undefined, false);
+    }, 15000);
+    return () => clearInterval(interval);
+  }, []);
   useEffect(() => {
     if (tradesData?._embedded?.records) {
       const filtered = tradesData._embedded.records.filter(trade =>
@@ -74,7 +82,8 @@ export default function TradesHistoryTab({ onLoad }: TradesHistoryTabProps) {
         }
       }
 
-      const apiUrl = url || 'https://api.mainnet.minepi.com/trades?limit=50&order=desc';
+      const horizonUrl = process.env.NEXT_PUBLIC_HORIZON_BASE_URL || 'https://horizon.suban.org/horizon';
+      const apiUrl = url || `${horizonUrl}/trades?limit=50&order=desc`;
       const cacheKey = `trades_${btoa(apiUrl)}`;
       const cached = getCached(cacheKey);
       if (cached) { setTradesData(cached); if (isInitial) onLoad?.(cached, true); setLoading(false); return; }

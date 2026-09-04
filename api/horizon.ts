@@ -5,7 +5,7 @@ import { getCexAddresses, LabledAddress, isValidPiNetworkAddress } from '../util
 
 // ===== CONSTANTS =====
 
-const BASE_URL = process.env.NEXT_PUBLIC_HORIZON_BASE_URL || 'https://api.mainnet.minepi.com';
+const BASE_URL = process.env.NEXT_PUBLIC_HORIZON_BASE_URL || 'https://horizon.suban.org/horizon';
 const BASE_URL_OWN =
   process.env.NEXT_PUBLIC_HORIZON_FALLBACK_URL || 'https://api.zyrachain.org/horizon';
 
