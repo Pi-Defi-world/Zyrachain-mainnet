@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-const TESTNET_HORIZON = process.env.NEXT_PUBLIC_TESTNET_HORIZON_URL || 'https://testnet.suban.org';
+const TESTNET_HORIZON = process.env.NEXT_PUBLIC_TESTNET_HORIZON_URL || 'https://api.testnet.minepi.com';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 120; // 2 min cache
